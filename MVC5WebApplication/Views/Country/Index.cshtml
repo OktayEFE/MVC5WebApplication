@@ -1,0 +1,95 @@
+﻿@using EntityLayer.Model
+@model CountryInfo
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="~/lib/jequery/dist/jequery.js"></script>
+
+@using (Html.BeginForm("CountryDetails", "Country", FormMethod.Post, new { @class = "well form-horizontal" }))
+{
+    <table class="table" id="mvcTable">
+        <thead>
+            <tr>
+                <th>Ülke</th>
+                <th>Ülke Başkent</th>
+                <th>Ülke Kısaltma</th>
+                <th>Ülke Para Birimi</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <td id="countryNameID">
+                        @Html.DropDownListFor(Model => Model.CountryName, new SelectList(ViewBag.countryNameList, "Value", "Text"))
+                    </td>
+                    <td id="countryCodeID">@Html.DisplayFor(Model => Model.CountryCode)</td>
+                    <td id="capitalCityID">@Html.DisplayFor(Model => Model.Capital)</td>
+                    <td id="countryCurrencyID">@Html.DisplayFor(Model => Model.CurrencyUnit)</td>
+                    <td>
+                        <a href="#editEmployeeModal" class="btn btn-success" type="button" onclick="Kaydet()">Kaydet</a>
+                    </td>
+                </tr>
+            
+
+        </tbody>
+    </table>
+
+}
+
+<script>
+    $('select').on('change', function () {
+        var value = $('#CountryName').select().val();
+        $.ajax({
+            url: "/Country/CountryDetails",
+            data: { 'IsoCode': value },
+            type: "post",
+            success: function (response) {
+                if (response != null) {
+                    //Delete table row
+                    //add New table row
+                    alert(response);
+                    $("#mvcTable").dataTable({
+                        data: response,
+                        columns: [
+                            { "data": 'Ülke Başkent' },
+                            { "data": 'Ülke Kısaltma' },
+                            { "data": 'Ülke Para Birimi' }
+                        ]
+                    });
+                }
+                else {
+                    alert(response.message);
+                }
+            }
+        })
+    });
+
+
+
+    function Kaydet() {
+        $.ajax({
+            url: "/Country/Index",
+            data: {
+                CountryName: $('#CountryName').select().val(),
+                Capital: $('#capitalCityID').text(),
+                CountryCode: $('#countryCodeID').text(),
+                CurrencyUnit: $('#countryCurrencyID').text()
+            },
+            type: "post",
+            cache: false,
+            success: function (response) {
+                if (response == true) {
+                    alert(response.message);
+                }
+                else {
+                    alert(response.message);
+                }
+            }
+        })
+    }</script>
+
+
