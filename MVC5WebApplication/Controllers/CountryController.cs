@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ServiceFunction;
 using BusinessLayer.ServiceModel;
 using EntityLayer.Model;
 using Newtonsoft.Json;
@@ -12,6 +13,7 @@ namespace MVC5WebApplication.Controllers
     {
         CountryManager _countryManager = new CountryManager();
         CountryService.CountryInfoServiceSoapTypeClient client = new CountryService.CountryInfoServiceSoapTypeClient("CountryInfoServiceSoap");
+        //CountryList list = new CountryList();
 
         public ActionResult Index()
         {

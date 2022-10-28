@@ -51,15 +51,16 @@
                 if (response != null) {
                     //Delete table row
                     //add New table row
-                    alert(response);
-                    $("#mvcTable").dataTable({
-                        data: response,
-                        columns: [
-                            { "data": 'Ülke Başkent' },
-                            { "data": 'Ülke Kısaltma' },
-                            { "data": 'Ülke Para Birimi' }
-                        ]
-                    });
+                    var jsonData = jQuery.parseJSON(response);
+                    console.log(jsonData);
+                    console.log(response);
+                    $('#countryCodeID').html(jsonData[0].CountryISOCode);
+                    $('#capitalCityID').html(jsonData[0].CapitalCity);
+                    $('#countryCurrencyID').html(jsonData[0].CountryCurrency);
+                    $('#countryCodeID').val(jsonData[0].CountryISOCode);
+                    $('#capitalCityID').val(jsonData[0].CapitalCity);
+                    $('#countryCurrencyID').val(jsonData[0].CountryCurrency);
+                    alert(response); 
                 }
                 else {
                     alert(response.message);

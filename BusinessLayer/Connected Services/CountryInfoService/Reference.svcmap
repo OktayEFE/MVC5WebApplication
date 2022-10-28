@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="fa1e811e-5dd4-4514-a868-96f438e52c37" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="37e17024-6afe-4385-b7e7-a97bbe57b4b3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="CountryInfoService.wsdl" MetadataType="Wsdl" ID="8ed2eff4-b39a-478e-9753-e1a526c359fc" SourceId="1" SourceUrl="http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL" />
+    <MetadataFile FileName="CountryInfoService.wsdl" MetadataType="Wsdl" ID="ea45b7d0-7704-4f39-8f2c-351163613cbd" SourceId="1" SourceUrl="http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
